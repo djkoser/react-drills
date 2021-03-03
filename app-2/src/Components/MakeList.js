@@ -8,8 +8,8 @@ export default class MakeList extends Component {
     }
   }
   render () {
-    const list = this.state.array.map(element => (
-      <li>{element}</li>
+    const list = this.state.array.map((element,index) => (
+      <li key={index}>{element}</li>
     ))
     return (
       <ol>
