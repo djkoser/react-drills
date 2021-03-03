@@ -4,44 +4,50 @@ import './App.css';
 import Login from './Components/Login';
 
 export default class App extends Component {
-  constructor () {
-    super(); 
-    this.state={
-      username:"",
-      password:""
-    }
-    // this.usernameChange()=this.usernameChange.bind(this);
-    // this.passwordChange()=this.passwordChange.bind(this);
+   constructor () {
+      super(); 
+      this.state = {
+        username:"",
+        password:""
+      }
+      this.usernameChange=this.usernameChange.bind(this);
+      this.passwordChange=this.passwordChange.bind(this);
 
-    // this.alertUser()= this.alertUser.bind(this);
+      this.alertUser= this.alertUser.bind(this);
+    }
+
+    usernameChange(value) {
+      this.setState({
+        username:value
+      })
+    };
+    passwordChange(value) {
+      this.setState({
+        password:value
+      })
+    };
+
+    alertUser() {
+      if (this.state.username===""||this.state.password==="") {
+        window.alert("Please enter a username and password.")
+      } else {
+        window.alert(`Congratulations!! You have submitted a username of: ${this.state.username} and a password of: ${this.state.password}.`)
+        this.setState({
+          username:"",
+          password:""
+        })
+      };
+    };
+
+    render () {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <Login usernameState={this.state.username} passwordState={this.state.password} usernameChange={this.usernameChange} passwordChange={this.passwordChange} submit={this.alertUser}/>
+          </header>
+        </div>
+      )
+    };
   }
 
-  usernameChange(value) {
-    this.setState({
-      username:value
-    })
-  };
-  passwordChange(value) {
-    this.setState({
-      password:value
-    })
-  };
-
-  alertUser() {
-    if (this.state.username===""||this.state.password==="") {
-      window.alert("Please enter a username and password.")
-    } else {
-      window.alert(`You have submitted a username of ${this.state.username} and a password of ${this.state.password}.`)
-    };
-  };
-
-  render () {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    )
-  };
-};
