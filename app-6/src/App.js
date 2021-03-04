@@ -46,6 +46,7 @@ export default class App extends Component {
         </ol>
         <input type='text' placeholder='Enter ToDo Here' value={this.state.userInput} onChange={e=>this.handleInput(e.target.value)} ></input>
         <button onClick={this.addListItem}>Add</button>
+        When Finished with an Item, Click it to Remove it.
       </header>
     </div>
     )

@@ -39,6 +39,7 @@ export default class App extends Component {
         <header className="App-header">
           <List toDoListState={this.state.toDoList} removeList={()=>this.removeListItem}/>
           <NewTask addTask={this.addListItem}/>
+          When Finished with an Item, Click to Remove it.
         </header>
       </div>
     );
