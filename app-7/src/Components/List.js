@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Todo from './ToDo';
 
-export default function List (props) {
+export default class List extends Component {
 
-  return (
-    <div>
-
-    </div>
-  )
-
+  render () {
+      const toDoItems = this.props.toDoListState.map((element,index) => (<Todo remove={this.props.removeList()} index={index} title ={element.title} description ={element.description}/>));
+      return (
+      <div>
+        <ol>
+          {toDoItems}
+        </ol>
+      </div>
+    )
+  }
 }

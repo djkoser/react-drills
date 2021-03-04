@@ -11,13 +11,17 @@ export default class App extends Component {
       toDoList:[]
     }
 
-    this.addListItem = this.addListItem.bind(this)
+    this.addListItem = this.addListItem.bind(this);
+    this.removeListItem = this.removeListItem.bind(this);
     
   }
 
-  addListItem(finalizedArray) {
-      this.setState({
-        toDoList:finalizedArray
+  addListItem(title,description) {
+    const newToDoObject = {title,description};
+    const toDoListCopy = this.state.toDoList.slice()
+    toDoListCopy.push(newToDoObject);
+    this.setState({
+        toDoList:toDoListCopy
     });
   };
 
@@ -25,7 +29,7 @@ export default class App extends Component {
     let shortenedList = this.state.toDoList.slice();
     shortenedList.splice(key,1);
     this.setState({
-      toDoList:shortenedList
+      toDoList: shortenedList
     })
   }
 
@@ -33,8 +37,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <List/>
-          <NewTask/>
+          <List toDoListState={this.state.toDoList} removeList={()=>this.removeListItem}/>
+          <NewTask addTask={this.addListItem}/>
         </header>
       </div>
     );

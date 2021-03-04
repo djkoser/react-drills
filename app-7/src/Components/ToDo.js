@@ -1,13 +1,7 @@
 import React from 'react';
 
 export default function Todo (props) {
-  const list = props.toDoList.map((element,index) => (
-    <li key={index} accessKey={index} onClick={event => props.remove(event.target.accessKey)}>{element}</li>
-  ))
   return (
-
-    <ol>
-      {list}
-    </ol>
+    <li key={props.index} accessKey={props.index} onClick={event => props.remove(event.target.accessKey)}>Title: {props.title}<br/>Description: {props.description}</li>
   )
 }
