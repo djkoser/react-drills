@@ -1,24 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import Image from './Components/Image'
 
-class App extends Component() {
-  constructor() {
-    super(); 
-    this.state = {
-      imageURL:"https://via.placeholder.com/150/FFFF00/000000?Text=David's Website"
-    };
-  };
-
-  render () {
-    return (
+export default function App() {
+  return (
     <div className="App">
       <header className="App-header">
-        <Image pic={this.state.imageURL}/>
+      <Image picURL={"https://via.placeholder.com/900/FFFF00/000000?text='David's Placeholder'"}/>
       </header>
     </div>
-    )
-  };
-};
-
-export default App
+  );
+}

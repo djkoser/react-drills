@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-
-//Takes input from user and outputs to ToDo for additional processing
 export default class NewTask extends Component {
   constructor () {
     super(); 

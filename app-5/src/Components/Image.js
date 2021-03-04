@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'; 
 
-export default function Imagem (props) {
+export default function Image (props) {
   return (
-    <div>
-      <img alt="David's Webiste Placeholder" src={props.pic}/>
-    </div>
-    )
-  }
+    <img alt="David's Placeholder" src={props.picURL}></img>
+  )
+};
