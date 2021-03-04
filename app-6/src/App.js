@@ -21,7 +21,6 @@ export default class App extends Component {
   }
   removeListItem(key) {
     let toDoListRemoved = this.state.toDoList.slice();
-    console.dir(key);
     toDoListRemoved.splice(key,1); 
     this.setState({
       toDoList:toDoListRemoved
